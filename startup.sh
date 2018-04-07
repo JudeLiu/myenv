@@ -16,9 +16,12 @@ sudo apt-get install -y python-pip python3-pip
 sudo apt-get install -y ipython-notebook
 
 # git configs
-git config --global core.editor "'C:/Program Files/Sublime Text 2/sublime_text.exe' -n -w"
+git config --global core.editor "subl -n -w"
 git config --global push.default upstream
 git config --global merge.conflictstyle diff3
+git config --global user.email "ljnsjtu@hotmail.com"
+git config --global user.name "liujunnan"
+git config credential.helper 'cache --timeout=3600'
 
 cp git-completion.bash ~/.git-completion.bash
 cp git-prompt.sh ~/.git-prompt.sh
