@@ -10,7 +10,11 @@ sudo apt-get install sublime-text
 # compilers & interpreters
 sudo apt-get install -y gcc clang
 
+sudo apt-get install -y python
 sudo apt-get install -y python-pip python3-pip
+
+echo -e "\nalias py=python" >> ~/.bashrc
+echo -e "alias py3=python3" >> ~/.bashrc
 
 # ipython-notebook
 sudo apt-get install -y ipython-notebook
