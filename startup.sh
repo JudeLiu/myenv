@@ -18,6 +18,8 @@ echo -e "alias py3=python3" >> ~/.bashrc
 
 # ipython-notebook
 sudo apt-get install -y ipython-notebook
+# numpy
+sudo pip install numpy
 
 # git configs
 git config --global core.editor "subl"
