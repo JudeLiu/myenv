@@ -43,7 +43,13 @@ sudo apt-get install -y gcc clang
 
 sudo apt-get install -y python
 sudo apt-get install -y python-pip python3-pip
+echo "done"
 
+# setting default python version
+echo "Setting the version control of python"
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python2.7 1
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.5 2
+# type `update-alternatives --config python` if you want to switch the default version of python
 echo "done"
 
 # ipython-notebook
