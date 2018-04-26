@@ -37,12 +37,9 @@ fi
 echo "done"
 
 
-# compilers & interpreters
-echo "Installing clang & python..."
+# c++ compiler
+echo "Installing clang..."
 sudo apt-get install -y gcc clang
-
-sudo apt-get install -y python
-sudo apt-get install -y python-pip python3-pip
 echo "done"
 
 # setting default python version
@@ -52,11 +49,9 @@ sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.5 2
 # type `update-alternatives --config python` if you want to switch the default version of python
 echo "done"
 
-# ipython-notebook
-echo "Installing python libs..."
-sudo apt-get install -y ipython-notebook
-# numpy
-sudo pip install numpy
-sudo pip3 install numpy
 
+# install miniconda
+echo "Installing miniconda"
+wget -O https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+Miniconda3-latest-Linux-x86_64.sh
 echo "done"
