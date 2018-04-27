@@ -50,10 +50,10 @@ sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.5 2
 echo "done"
 
 
-# install miniconda
-echo "Installing miniconda"
-wget -O https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
-Miniconda3-latest-Linux-x86_64.sh
+# install Anaconda
+echo "Installing Anaconda"
+wget -O https://repo.anaconda.com/archive/Anaconda3-5.1.0-Linux-x86_64.sh
+Anaconda3-5.1.0-Linux-x86_64.sh
 
 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge 
