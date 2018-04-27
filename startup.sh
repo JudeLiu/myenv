@@ -55,9 +55,17 @@ echo "Installing Anaconda"
 wget -O https://repo.anaconda.com/archive/Anaconda3-5.1.0-Linux-x86_64.sh
 Anaconda3-5.1.0-Linux-x86_64.sh
 
+bash
 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge 
 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/
 
 conda config --set show_channel_urls yes
 echo "done"
+
+# Fix matplotlib dependency
+sudo apt install -y libgl1-mesa-glx
+
+echo -ne "If you want to show GUI on Windows Linux Subsystem, download Xming from Internet, and type
+touch ~/.config/matplotlib/matplotlibrc && echo backend: TkAgg
+echo DISPLAY=localhost:0.0 >> ~/.bashrc"
