@@ -9,7 +9,6 @@ echo "done"
 
 # git configs
 echo "Configuring git..." 
-git config --global core.editor "subl"
 git config --global push.default upstream
 git config --global merge.conflictstyle diff3
 git config --global user.email "ljnsjtu@hotmail.com"
