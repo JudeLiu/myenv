@@ -48,6 +48,7 @@ conda config --set show_channel_urls yes
 echo "done"
 
 # Fix matplotlib dependency
+# "libGl.so"
 sudo apt install -y libgl1-mesa-glx
 
 echo -e "If you want to show GUI on Windows Linux Subsystem, download Xming on Internet, and type

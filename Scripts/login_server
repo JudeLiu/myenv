@@ -1,0 +1,27 @@
+if [ -z $1 ]; then
+        PORT=26622
+else
+    case $1 in
+    1)
+        PORT=30022;;
+    2)
+        PORT=26622;;
+    3)
+        PORT=26522;;
+    4)
+        PORT=26422;;
+    *)
+        PORT=26522;;
+    esac
+fi
+
+if [ $2 ]; then
+	USER=$2
+else
+	USER=jun
+fi
+
+echo ssh -p$PORT $USER@202.120.32.244
+ssh -p$PORT $USER@202.120.32.244
+
+
