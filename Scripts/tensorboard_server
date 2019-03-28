@@ -1,0 +1,10 @@
+#!/usr/bin/python3.5
+
+import argparse
+import os
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--port', '-p', default=26622, type=int)
+
+args = parser.parse_args()
+os.system('ssh -L10066:127.0.0.1:6006 -p{} jun@202.120.32.244'.format(args.port))

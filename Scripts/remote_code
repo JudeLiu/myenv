@@ -1,13 +1,1 @@
-if [ $1 ]; then
-	PORT=$1
-else
-	PORT=26622
-fi
-
-if [ $2 ]; then
-	USER=$2
-else
-	USER=jun
-fi
-
-ssh -R 52698:127.0.0.1:52698 $USER@202.120.32.244 -p$PORT
+ssh -R 52698:127.0.0.1:52698 jun@202.120.32.244 -p 26622

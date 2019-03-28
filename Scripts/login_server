@@ -1,27 +1,17 @@
-if [ -z $1 ]; then
-        PORT=26622
-else
-    case $1 in
-    1)
-        PORT=30022;;
-    2)
-        PORT=26622;;
-    3)
-        PORT=26522;;
-    4)
-        PORT=26422;;
-    *)
-        PORT=26522;;
-    esac
-fi
+#!/usr/bin/python3
 
-if [ $2 ]; then
-	USER=$2
-else
-	USER=jun
-fi
+import argparse
+import os
 
-echo ssh -p$PORT $USER@202.120.32.244
-ssh -p$PORT $USER@202.120.32.244
+parser = argparse.ArgumentParser()
+port_info='''30022 AISIG01 
+26622 AISIG02 
+26522 AISIG03 
+26422 AISIG04'''
+parser.add_argument('--port', '-p', default=26622, type=int, help=port_info)
+parser.add_argument('--user', '-u', default='jun', type=str)
+parser.add_argument('--ip', '-i', default='202.120.32.244', type=str)
 
-
+args = parser.parse_args()
+os.system('ssh {}@{} -p {}'.format(args.user, args.ip, args.port))
+#os.system('ssh jun@202.120.32.244 -p {}'.format(args.port))
