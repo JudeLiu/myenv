@@ -4,14 +4,13 @@ import argparse
 import os
 
 parser = argparse.ArgumentParser()
-port_info='''30022 AISIG01 
-26622 AISIG02 
-26522 AISIG03 
-26422 AISIG04'''
-parser.add_argument('--port', '-p', default=26622, type=int, help=port_info)
+port_info='''30022 26622 26522 26422 26722'''
+parser.add_argument('--port', '-p', default='6', type=str, help=port_info)
 parser.add_argument('--user', '-u', default='jun', type=str)
 parser.add_argument('--ip', '-i', default='202.120.32.244', type=str)
 
 args = parser.parse_args()
+
+if len(args.port) < 5:
+  args.port = '26{}22'.format(args.port) 
 os.system('ssh {}@{} -p {}'.format(args.user, args.ip, args.port))
-#os.system('ssh jun@202.120.32.244 -p {}'.format(args.port))

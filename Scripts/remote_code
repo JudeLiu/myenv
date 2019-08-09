@@ -1,1 +1,16 @@
-ssh -R 52698:127.0.0.1:52698 jun@202.120.32.244 -p 26622
+#!/home/jude/anaconda3/bin/python
+
+import argparse
+import os
+
+parser = argparse.ArgumentParser()
+port_info='''30022 AISIG01
+26622 AISIG02
+26522 AISIG03
+26422 AISIG04'''
+parser.add_argument('--port', '-p', default=26622, type=int, help=port_info)
+parser.add_argument('--user', '-u', default='jun', type=str)
+parser.add_argument('--ip', '-i', default='202.120.32.244', type=str)
+
+args = parser.parse_args()
+os.system(f'ssh -R 52698:127.0.0.1:52698 {args.user}@{args.ip} -p {args.port}')
