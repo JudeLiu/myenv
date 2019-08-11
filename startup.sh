@@ -11,7 +11,7 @@ git config credential.helper 'cache --timeout=7200'
 # Install vim plugins
 echo "Install Vim plugins"
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-cp .vimrc ~/.vimrc
+cp vimrc ~/.vimrc
 echo "Launch vim and run :PluginInstall"
 
 read -p "Install zsh? [Y/n] " ans
