@@ -2,17 +2,23 @@
 
 # git configs
 echo "Configuring git..." 
+git config --global core.editor vim
 git config --global push.default upstream
 git config --global merge.conflictstyle diff3
 git config --global user.email "liujunnan@sjtu.edu.com"
 git config --global user.name "Liu Junnan"
 git config credential.helper 'cache --timeout=7200'
 
-# Install vim plugins
-echo "Install Vim plugins"
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-cp .vimrc ~/.vimrc
-echo "Launch vim and run :PluginInstall"
+read -p "Install vim plugins? [Y/n] " ans
+if [ "$ans" = "" ] || [ "$ans" = "Y" ] || [ "$ans" = "y" ]; then
+
+    # Install vim plugins
+    echo "Install Vim plugins"
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    cp vimrc ~/.vimrc
+    echo "Launch vim and run :PlugInstall"
+fi
 
 read -p "Install zsh? [Y/n] " ans
 if [ "$ans" = "" ] || [ "$ans" = "Y" ] || [ "$ans" = "y" ]; then
