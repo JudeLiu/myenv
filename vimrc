@@ -2,30 +2,20 @@
 set nocompatible              " required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'tmhedberg/SimpylFold'
+call plug#begin('~/.vim/plugged')
+Plug 'tmhedberg/SimpylFold'
 "Plugin 'vim-scripts/indentpython.vim'
-" Bundle 'Valloric/YouCompleteMe'
-Plugin 'nvie/vim-flake8'
-Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
-Plugin 'scrooloose/nerdtree'
-"Plugin 'cjrh/vim-conda'
+Plug '~/.vim/plugged/YouCompleteMe'
+Plug 'nvie/vim-flake8'
+Plug 'vim-airline/vim-airline'
+Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+Plug 'Yggdroot/indentLine', {'for': 'python'}
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-fugitive'
 " Plugin 'cjrh/vim-cond'
 " Plugin 'davidhalter/jedi-vim'
-
-" add all your plugins here (note older versions of Vundle
-" used Bundle instead of Plugin)
-
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
+call plug#end()            " required
 filetype plugin indent on    " required
 
 " To ignore plugin indent changes, instead use:
@@ -51,6 +41,14 @@ set tabstop=4
 set splitbelow
 set splitright
 set encoding=utf-8
+set hlsearch
+
+" Map space to leader
+nnoremap <SPACE> <Nop>
+let mapleader=" "
+
+" map ESC -> jj
+inoremap jj <Esc>
 
 " split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -61,9 +59,6 @@ nnoremap <C-L> <C-W><C-L>
 " Enable folding
 set foldmethod=indent
 set foldlevel=99
-
-" Enable folding with the spacebar
-nnoremap <space> za 
 
 au BufNewFile, BufRead *.py
     \ set tabstop=4
@@ -80,14 +75,22 @@ au BufRead, BufNewFile *.py, *.pyw, *.c, *.cpp, *.h match BadWhitespace /\s\+$/
 let python_high_light_all=1
 syntax on
 
-" powerline
-set laststatus=2 " Always display the statusline in all windows
-set showtabline=2 " Always display the tabline, even if there is only the tab
-set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
+" indentLine
+let g:IndentLineEnable=1
 
 " YCM
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g :YmcCompleter GoToDefinitionElseDeclaration<CR>
+let g:ycm_python_binary_path = "python"     " use env python as python bin
 
 " NerdTree
-map <C-n> :NERDTreeToggle<CR>
+" map <C-n> :NERDTreeToggle<CR>
+
+" Uncomment the following to have Vim jump to the last position when
+" reopening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
+" airline
+let g:airline#extensions#tabline#enabled = 1
