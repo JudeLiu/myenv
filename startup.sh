@@ -23,6 +23,7 @@ fi
 read -p "Install zsh? [Y/n] " ans
 if [ "$ans" = "" ] || [ "$ans" = "Y" ] || [ "$ans" = "y" ]; then
     sh -c "$(wget -O- https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    cp dotfiles/zshrc ~/.zshrc
 fi
 
 read -p "Sudo permission? [Y/n] " ans 
@@ -59,3 +60,5 @@ if [ "$ans" = "" ] || [ "$ans" = "Y" ] || [ "$ans" = "y" ]; then
     echo "Done"
 
 fi
+
+cp dotfiles/bash_aliases ~/.bash_aliases

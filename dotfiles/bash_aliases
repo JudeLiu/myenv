@@ -1,0 +1,21 @@
+#!/bin/bash
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+alias sa='source activate'
+alias sd='source deactivate'
+alias ca='conda activate'
+alias cod='conda deactivate'
+alias ns='nvidia-smi'
+
+alias tb='export TMPDIR=/tmp/jun && tensorboard --logdir '
+
+alias nt='jupyter notebook --no-browser --port=8889'
+alias tree='gvfs-tree'
+
+function ecuda {
+    export CUDA_VISIBLE_DEVICES=$1
+    echo "export CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES}"
+}
