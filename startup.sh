@@ -16,7 +16,7 @@ if [ "$ans" = "" ] || [ "$ans" = "Y" ] || [ "$ans" = "y" ]; then
     echo "Install Vim plugins"
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
             https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    cp vimrc ~/.vimrc
+    cp dotfiles/vimrc ~/.vimrc
     echo "Launch vim and run :PlugInstall"
 fi
 

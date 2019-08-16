@@ -9,6 +9,8 @@ alias sd='source deactivate'
 alias ca='conda activate'
 alias cod='conda deactivate'
 alias ns='nvidia-smi'
+alias py='python'
+alias ipy='ipython'
 
 alias tb='export TMPDIR=/tmp/jun && tensorboard --logdir '
 
