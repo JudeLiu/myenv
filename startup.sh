@@ -8,7 +8,7 @@ if [ "$ans" = "" ] || [ "$ans" = "Y" ] || [ "$ans" = "y" ]; then
     codename=`lsb_release -sc`
     if [ "$distro" = "Ubuntu" ]; then
         echo "Updating sources.list..."
-        sed "s/xenial/${codename}/g" -i sources.list 
+        sed "s/bionic/${codename}/g" -i sources.list 
         sudo mv /etc/apt/sources.list /etc/apt/sources.list.old
         sudo cp sources.list /etc/apt/
         sudo apt-get update
