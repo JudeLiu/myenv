@@ -45,9 +45,6 @@ if [ "$ans" = "" ] || [ "$ans" = "Y" ] || [ "$ans" = "y" ]; then
     git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
     git clone git://github.com/wting/autojump.git
     cd autojump && ./install.py
-    echo >> ~/.bashrc
-    echo "# set default shell as zsh" >> ~/.bashrc 
-    echo "bash -c zsh" >> ~/.bashrc
 fi
 
 read -p "Install Miniconda? [Y/n] " ans 
