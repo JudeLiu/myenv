@@ -59,6 +59,7 @@ if [ "$ans" = "" ] || [ "$ans" = "Y" ] || [ "$ans" = "y" ]; then
     echo -e "If you want to show GUI on Windows Linux Subsystem, download Xming on Internet, and type
     touch ~/.config/matplotlib/matplotlibrc && echo \"backend: TkAgg\" >> ~/.config/matplotlib/matplotlibrc
     echo DISPLAY=localhost:0.0 >> ~/.bashrc"
+    echo "copy dotfiles/.condarc to home directory to use TUNA mirror"
 fi
 
 read -p "Install Matplotlib in WSL? [Y/n] " ans 
